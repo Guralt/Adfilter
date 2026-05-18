@@ -1,0 +1,14 @@
+! Blokir script pop-under dan redirect agresif
+||mediumdirt.com^$script,domain=softkomik.co
+||hethsminter.com^$script,domain=softkomik.co
+||acscdn.com^$script,domain=softkomik.co
+||bvtpk.com^$script,domain=softkomik.co
+||aqle3.com^$script,domain=softkomik.co
+
+! Blokir frame iklan A-Ads
+||acceptable.a-ads.com^$subdocument,domain=softkomik.co
+
+! Sembunyikan elemen banner kosong agar tidak mengganggu layout
+softkomik.co##[data-banner-id]
+softkomik.co##[data-cl-spot]
+softkomik.co##div[id^="aclib-zone"]
