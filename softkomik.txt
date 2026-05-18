@@ -1,14 +1,64 @@
-! Blokir script pop-under dan redirect agresif
-||mediumdirt.com^$script,domain=softkomik.co
-||hethsminter.com^$script,domain=softkomik.co
-||acscdn.com^$script,domain=softkomik.co
-||bvtpk.com^$script,domain=softkomik.co
-||aqle3.com^$script,domain=softkomik.co
+text
+! Nama: Custom Aggressive Ad & Pop-under Blocker
+! Deskripsi: Memblokir jaringan iklan agresif, pop-under, dan overlay transparan secara universal.
+! Diperbarui: 2023-2024 (Format Cromite / uBlock Origin)
 
-! Blokir frame iklan A-Ads
-||acceptable.a-ads.com^$subdocument,domain=softkomik.co
+! ==========================================
+! 1. BLOKIR SCRIPT DARI SITUS SEBELUMNYA (UNIVERSAL)
+! ==========================================
+||mediumdirt.com^$3p
+||hethsminter.com^$3p
+||acscdn.com^$3p
+||bvtpk.com^$3p
+||aqle3.com^$3p
+||acceptable.a-ads.com^$3p
 
-! Sembunyikan elemen banner kosong agar tidak mengganggu layout
-softkomik.co##[data-banner-id]
-softkomik.co##[data-cl-spot]
-softkomik.co##div[id^="aclib-zone"]
+! ==========================================
+! 2. BLOKIR JARINGAN POP-UNDER & MONETAG/PROPELLERADS
+! ==========================================
+! Monetag / PropellerAds sering mengganti nama domain acak
+||monetag.com^$3p
+||propellerads.com^$3p
+||onclickalgo.com^$3p
+||onclicka.com^$3p
+||popme.net^$3p
+||zolomkav.com^$3p
+||hilltopads.com^$3p
+||bidgear.com^$3p
+
+! ==========================================
+! 3. BLOKIR ADCASH, POPADS, POPCASH, & EXOCLICK
+! ==========================================
+||adcash.com^$3p
+||popads.net^$3p
+||serve.popads.net^$3p
+||popcash.net^$3p
+||exoclick.com^$3p
+||syndication.exoclick.com^$3p
+||terraclicks.com^$3p
+
+! ==========================================
+! 4. BLOKIR ADSTERRA & JARINGAN MALVERTISING UMUM
+! ==========================================
+||adsterra.com^$3p
+||pl1*.com^$script,3p
+||go.pub2srv.com^$3p
+||wpadmngr.com^$3p
+||ouo.io^$3p
+||ouo.press^$3p
+
+! ==========================================
+! 5. KOSMETIK: SEMBUNYIKAN ELEMEN PEMBAWA IKLAN / OVERLAY
+! ==========================================
+! Menghilangkan elemen transparan (clickjacking) dan ruang kosong bekas iklan
+##[data-banner-id]
+##[data-cl-spot]
+##div[id^="aclib-zone"]
+##div[class^="pop-under"]
+##div[class*="clickjacking"]
+##iframe[src*="a-ads.com"]
+##iframe[src*="exoclick.com"]
+
+! Mematikan div overlay transparan yang sering digunakan menutupi layar
+##div[style*="position: fixed"][style*="z-index: 2147483647"][style*="opacity: 0"]
+##div[style*="position: absolute"][style*="width: 100%"][style*="height: 100%"][style*="opacity: 0"]
