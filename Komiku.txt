@@ -1,0 +1,11 @@
+! === Filter Anti Iklan & Pop-up Komiku ===
+
+! 1. Memblokir script pop-up / redirect yang sangat mengganggu
+||api.komiku.org/ads/pop-up/*$script,domain=komiku.org
+
+! 2. Memblokir script iklan banner tambahan 
+||data.komiku.org/iklan/*$script,domain=komiku.org
+
+! 3. Menyembunyikan tempat/wadah (div) kosong tempat iklan bersarang
+komiku.org##.iklan
+komiku.org##.ads1
